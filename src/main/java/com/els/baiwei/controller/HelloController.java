@@ -9,10 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @Time: 2019/11/6 10:29
  */
 @RestController
-public class Hello {
+public class HelloController {
 
     @GetMapping("/hello")
     public String hello(){
         return "hello";
+    }
+
+    @GetMapping("/employee/basic/hello")
+    public String basic(){
+        return "basic";
+    }
+
+    @GetMapping("/employee/advanced/hello")
+    public String advanced(){
+        return "advanced";
     }
 }

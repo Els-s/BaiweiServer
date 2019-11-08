@@ -1,5 +1,7 @@
 package com.els.baiwei.model;
 
+import java.util.List;
+
 public class Menu {
     private Integer id;
 
@@ -20,6 +22,26 @@ public class Menu {
     private Integer parentid;
 
     private Boolean enabled;
+
+    private List<Menu> children;
+
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Menu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Menu> children) {
+        this.children = children;
+    }
 
     public Integer getId() {
         return id;

@@ -2,6 +2,8 @@ package com.els.baiwei.mapper;
 
 import com.els.baiwei.model.Menu;
 
+import java.util.List;
+
 public interface MenuMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,8 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    List<Menu> getMenuByHrId(Integer HrId);
+
+    List<Menu> getAllMenus();
 }

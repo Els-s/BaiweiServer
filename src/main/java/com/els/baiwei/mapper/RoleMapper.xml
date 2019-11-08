@@ -15,6 +15,9 @@
     from role
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="getRoleByHrId" resultType="com.els.baiwei.model.Role">
+    SELECT r.* FROM role r,hr_role hrr WHERE hrr.rid=r.id and hrr.hrid=#{HrId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from role
     where id = #{id,jdbcType=INTEGER}

@@ -1,32 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.els.baiwei.mapper.MenuMapper" >
-  <resultMap id="BaseResultMap" type="com.els.baiwei.model.Menu" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="path" property="path" jdbcType="VARCHAR" />
-    <result column="component" property="component" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="iconCls" property="iconcls" jdbcType="VARCHAR" />
-    <result column="keepAlive" property="keepalive" jdbcType="BIT" />
-    <result column="requireAuth" property="requireauth" jdbcType="BIT" />
-    <result column="parentId" property="parentid" jdbcType="INTEGER" />
-    <result column="enabled" property="enabled" jdbcType="BIT" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.els.baiwei.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="com.els.baiwei.model.Menu">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="path" property="path" jdbcType="VARCHAR"/>
+        <result column="component" property="component" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="iconCls" property="iconcls" jdbcType="VARCHAR"/>
+        <result column="keepAlive" property="keepalive" jdbcType="BIT"/>
+        <result column="requireAuth" property="requireauth" jdbcType="BIT"/>
+        <result column="parentId" property="parentid" jdbcType="INTEGER"/>
+        <result column="enabled" property="enabled" jdbcType="BIT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     id, url, path, component, name, iconCls, keepAlive, requireAuth, parentId, enabled
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from menu
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from menu
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <resultMap id="BaseResultMap2" type="com.els.baiwei.model.Menu" extends="BaseResultMap">
+        <collection property="children" ofType="com.els.baiwei.model.Menu">
+            <id column="id2" property="id" jdbcType="INTEGER"/>
+            <result column="url2" property="url" jdbcType="VARCHAR"/>
+            <result column="path2" property="path" jdbcType="VARCHAR"/>
+            <result column="component2" property="component" jdbcType="VARCHAR"/>
+            <result column="name2" property="name" jdbcType="VARCHAR"/>
+            <result column="iconCls2" property="iconcls" jdbcType="VARCHAR"/>
+            <result column="keepAlive2" property="keepalive" jdbcType="BIT"/>
+            <result column="requireAuth2" property="requireauth" jdbcType="BIT"/>
+            <result column="parentId2" property="parentid" jdbcType="INTEGER"/>
+            <result column="enabled2" property="enabled" jdbcType="BIT"/>
+        </collection>
+    </resultMap>
+    <select id="getMenuByHrId" resultMap="BaseResultMap2">
+      select m1.*,m2.id as id2,m2.url as url2,m2.path as path2,m2.component as component2,m2.name as name2,m2.iconCls as iconCls2,m2.keepAlive as keepAlive2,m2.requireAuth as requireAuth2,m2.parentId as parentId2,m2.enabled as enabled2
+FROM menu m1,menu m2,menu_role mr,hr_role hrr WHERE m1.id=m2.parentId and mr.mid=m2.id AND mr.rid=hrr.rid
+AND hrr.hrid=#{HrId} ORDER BY m1.id,m2.id
+    </select>
+    <resultMap id="BaseResultMap3" type="com.els.baiwei.model.Menu" extends="BaseResultMap">
+        <collection property="roles" ofType="com.els.baiwei.model.Role">
+            <id column="rid" property="id" jdbcType="INTEGER"/>
+            <result column="rname" property="name" jdbcType="VARCHAR"/>
+            <result column="rnameZh" property="namezh" jdbcType="VARCHAR"/>
+        </collection>
+    </resultMap>
+    <select id="getAllMenus" resultMap="BaseResultMap3">
+        SELECT m.*,r.id as rid,r.`name` as rname,r.nameZh as rnameZh from menu m,menu_role mr,role r
+WHERE m.id=mr.mid and mr.rid=r.id
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.els.baiwei.model.Menu" >
+    <insert id="insert" parameterType="com.els.baiwei.model.Menu">
     insert into menu (id, url, path, 
       component, name, iconCls, 
       keepAlive, requireAuth, parentId, 
@@ -36,107 +66,107 @@
       #{keepalive,jdbcType=BIT}, #{requireauth,jdbcType=BIT}, #{parentid,jdbcType=INTEGER}, 
       #{enabled,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.els.baiwei.model.Menu" >
-    insert into menu
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="url != null" >
-        url,
-      </if>
-      <if test="path != null" >
-        path,
-      </if>
-      <if test="component != null" >
-        component,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="iconcls != null" >
-        iconCls,
-      </if>
-      <if test="keepalive != null" >
-        keepAlive,
-      </if>
-      <if test="requireauth != null" >
-        requireAuth,
-      </if>
-      <if test="parentid != null" >
-        parentId,
-      </if>
-      <if test="enabled != null" >
-        enabled,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="url != null" >
-        #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="path != null" >
-        #{path,jdbcType=VARCHAR},
-      </if>
-      <if test="component != null" >
-        #{component,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="iconcls != null" >
-        #{iconcls,jdbcType=VARCHAR},
-      </if>
-      <if test="keepalive != null" >
-        #{keepalive,jdbcType=BIT},
-      </if>
-      <if test="requireauth != null" >
-        #{requireauth,jdbcType=BIT},
-      </if>
-      <if test="parentid != null" >
-        #{parentid,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        #{enabled,jdbcType=BIT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.els.baiwei.model.Menu" >
-    update menu
-    <set >
-      <if test="url != null" >
-        url = #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="path != null" >
-        path = #{path,jdbcType=VARCHAR},
-      </if>
-      <if test="component != null" >
-        component = #{component,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="iconcls != null" >
-        iconCls = #{iconcls,jdbcType=VARCHAR},
-      </if>
-      <if test="keepalive != null" >
-        keepAlive = #{keepalive,jdbcType=BIT},
-      </if>
-      <if test="requireauth != null" >
-        requireAuth = #{requireauth,jdbcType=BIT},
-      </if>
-      <if test="parentid != null" >
-        parentId = #{parentid,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        enabled = #{enabled,jdbcType=BIT},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.els.baiwei.model.Menu" >
+    <insert id="insertSelective" parameterType="com.els.baiwei.model.Menu">
+        insert into menu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="path != null">
+                path,
+            </if>
+            <if test="component != null">
+                component,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="iconcls != null">
+                iconCls,
+            </if>
+            <if test="keepalive != null">
+                keepAlive,
+            </if>
+            <if test="requireauth != null">
+                requireAuth,
+            </if>
+            <if test="parentid != null">
+                parentId,
+            </if>
+            <if test="enabled != null">
+                enabled,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="path != null">
+                #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="component != null">
+                #{component,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="iconcls != null">
+                #{iconcls,jdbcType=VARCHAR},
+            </if>
+            <if test="keepalive != null">
+                #{keepalive,jdbcType=BIT},
+            </if>
+            <if test="requireauth != null">
+                #{requireauth,jdbcType=BIT},
+            </if>
+            <if test="parentid != null">
+                #{parentid,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                #{enabled,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.els.baiwei.model.Menu">
+        update menu
+        <set>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="path != null">
+                path = #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="component != null">
+                component = #{component,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="iconcls != null">
+                iconCls = #{iconcls,jdbcType=VARCHAR},
+            </if>
+            <if test="keepalive != null">
+                keepAlive = #{keepalive,jdbcType=BIT},
+            </if>
+            <if test="requireauth != null">
+                requireAuth = #{requireauth,jdbcType=BIT},
+            </if>
+            <if test="parentid != null">
+                parentId = #{parentid,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                enabled = #{enabled,jdbcType=BIT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.els.baiwei.model.Menu">
     update menu
     set url = #{url,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},

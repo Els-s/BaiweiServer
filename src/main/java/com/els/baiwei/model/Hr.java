@@ -3,9 +3,12 @@ package com.els.baiwei.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @ToString
 public class Hr implements UserDetails {
@@ -28,6 +31,21 @@ public class Hr implements UserDetails {
     private String userface;
 
     private String remark;
+
+    /*删除getEnabled方法,父类方法代替*/
+//    public Boolean getEnabled() {
+//        return enabled;
+//    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    private List<Role> roles;
 
     public Integer getId() {
         return id;
@@ -103,9 +121,14 @@ public class Hr implements UserDetails {
         this.username = username == null ? null : username.trim();
     }
 
+    /*获取用户角色*/
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<SimpleGrantedAuthority> authorities=new ArrayList<>();
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return authorities;
     }
 
     @JsonIgnore
