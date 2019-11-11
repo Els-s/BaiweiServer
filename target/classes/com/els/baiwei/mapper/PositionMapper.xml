@@ -16,7 +16,10 @@
     from position
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="getPositions" resultMap="BaseResultMap">
+      select * from position
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from position
     where id = #{id,jdbcType=INTEGER}
   </delete>

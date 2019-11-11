@@ -14,7 +14,10 @@
     from politicsstatus
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="getPoliticsstatus" resultMap="BaseResultMap">
+      select * from politicsstatus
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from politicsstatus
     where id = #{id,jdbcType=INTEGER}
   </delete>

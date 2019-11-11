@@ -2,6 +2,8 @@ package com.els.baiwei.mapper;
 
 import com.els.baiwei.model.JObLevel;
 
+import java.util.List;
+
 public interface JObLevelMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,7 @@ public interface JObLevelMapper {
     int updateByPrimaryKeySelective(JObLevel record);
 
     int updateByPrimaryKey(JObLevel record);
+
+    List<JObLevel> getJobLevels();
+
 }

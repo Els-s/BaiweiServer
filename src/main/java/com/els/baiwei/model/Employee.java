@@ -1,5 +1,7 @@
 package com.els.baiwei.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Employee {
@@ -9,6 +11,7 @@ public class Employee {
 
     private String gender;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date birthday;
 
     private String idcard;
@@ -41,6 +44,7 @@ public class Employee {
 
     private String school;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date begindate;
 
     private String workstate;
@@ -49,15 +53,69 @@ public class Employee {
 
     private Double contractterm;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date conversiontime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date notworkdate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date begincontract;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date endcontract;
 
     private Integer workage;
+
+    private Nation nation;
+
+    private Position position;
+
+    private Politicsstatus politicsstatus;
+
+    private Department department;
+
+    private JObLevel jObLevel;
+
+    public Nation getNation() {
+        return nation;
+    }
+
+    public void setNation(Nation nation) {
+        this.nation = nation;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Politicsstatus getPoliticsstatus() {
+        return politicsstatus;
+    }
+
+    public void setPoliticsstatus(Politicsstatus politicsstatus) {
+        this.politicsstatus = politicsstatus;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public JObLevel getjObLevel() {
+        return jObLevel;
+    }
+
+    public void setjObLevel(JObLevel jObLevel) {
+        this.jObLevel = jObLevel;
+    }
 
     public Integer getId() {
         return id;

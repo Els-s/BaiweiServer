@@ -1,5 +1,7 @@
 package com.els.baiwei.model;
 
+import java.util.List;
+
 public class Department {
     private Integer id;
 
@@ -12,6 +14,16 @@ public class Department {
     private Boolean enabled;
 
     private Boolean isparent;
+
+    private List<Department> children;
+
+    public List<Department> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Department> children) {
+        this.children = children;
+    }
 
     public Integer getId() {
         return id;

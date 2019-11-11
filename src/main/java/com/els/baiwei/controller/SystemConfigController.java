@@ -1,7 +1,7 @@
 package com.els.baiwei.controller;
 
 import com.els.baiwei.model.Menu;
-import com.els.baiwei.service.MenuService;
+import com.els.baiwei.service.emp.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

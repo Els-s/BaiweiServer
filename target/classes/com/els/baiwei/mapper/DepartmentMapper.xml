@@ -18,7 +18,17 @@
     from department
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+
+  <!--懒加载实现递归查询-->
+  <resultMap id="BaseResultMap2" type="com.els.baiwei.model.Department" extends="BaseResultMap">
+    <collection property="children" ofType="com.els.baiwei.model.Department"
+                select="com.els.baiwei.mapper.DepartmentMapper.getAllDep" column="id"></collection>
+  </resultMap>
+    <select id="getAllDep" resultMap="BaseResultMap2">
+      select * from department where parentid= #{id}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from department
     where id = #{id,jdbcType=INTEGER}
   </delete>

@@ -1,4 +1,4 @@
-package com.els.baiwei.service;
+package com.els.baiwei.service.emp;
 
 import com.els.baiwei.mapper.MenuMapper;
 import com.els.baiwei.model.Hr;

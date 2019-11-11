@@ -43,6 +43,47 @@
     from employee
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <resultMap id="BaseResultMap2" type="com.els.baiwei.model.Employee" extends="BaseResultMap">
+    <association property="nation" javaType="com.els.baiwei.model.Nation">
+      <id column="nid" property="id"/>
+      <result column="nname" property="name"/>
+    </association>
+    <association property="politicsstatus" javaType="com.els.baiwei.model.Politicsstatus">
+      <id column="pid" property="id"/>
+      <result column="pname" property="name"/>
+    </association>
+    <association property="department" javaType="com.els.baiwei.model.Department">
+      <id column="did" property="id"/>
+      <result column="dname" property="name"/>
+    </association>
+    <association property="jObLevel" javaType="com.els.baiwei.model.JObLevel">
+      <id column="jid" property="id"/>
+      <result column="jname" property="name"/>
+    </association>
+    <association property="position" javaType="com.els.baiwei.model.Position">
+      <id column="poid" property="id"/>
+      <result column="poname" property="name"/>
+    </association>
+  </resultMap>
+    <select id="getEmployeeByPage" resultMap="BaseResultMap2">
+      select e.*,n.`id` as nid,n.`name` as nname,p.`id` as pid,p.`name` as pname,d.`id` as did,
+      d.`name` as dname,j.`id` as jid,j.`name` as jname,po.`id` as poid,po.`name` as poname from employee e,
+      nation n,politicsstatus p,department d,joblevel j,position po where e.`nationId`=n.`id` and e.`politicId`=p.`id` and
+    e.`departmentId`=d.`id` and e.`jobLevelId`=j.`id` and e.`posId`=po.`id`
+    <if test="keywords !=null and keywords !=''">
+      and e.name like concat('%',#{keywords},'%')
+    </if>
+    <if test="pageIndex != null and pageSize != null">
+    limit #{pageIndex},#{pageSize}
+    </if>
+    </select>
+  <select id="selectEmployeeCount" resultType="java.lang.Integer">
+    SELECT COUNT(*) from employee
+    <if test="keywords !=null and keywords !=''">
+      where name like concat('%',#{keywords},'%')
+    </if>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from employee
     where id = #{id,jdbcType=INTEGER}
@@ -244,6 +285,19 @@
       </if>
     </trim>
   </insert>
+  <!--添加多个-->
+  <insert id="addEmps" parameterType="java.util.ArrayList">
+    insert into employee(name,gender,phone,address)
+    values
+    <foreach collection="emps"  item="emp" separator=",">
+        (#{emp.name},#{emp.gender},#{emp.phone},#{emp.address})
+    </foreach>
+  </insert>
+  <insert id="insertEmp" parameterType="com.els.baiwei.model.Employee">
+     insert into employee(name,gender,phone,address)
+     values (#{name},#{gender},#{phone},#{address})
+  </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.els.baiwei.model.Employee" >
     update employee
     <set >

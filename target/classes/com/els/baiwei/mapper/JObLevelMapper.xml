@@ -17,7 +17,10 @@
     from joblevel
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="getJobLevels" resultMap="BaseResultMap" >
+      select * from joblevel
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from joblevel
     where id = #{id,jdbcType=INTEGER}
   </delete>

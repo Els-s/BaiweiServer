@@ -2,8 +2,7 @@ package com.els.baiwei.config;
 
 import com.els.baiwei.model.Menu;
 import com.els.baiwei.model.Role;
-import com.els.baiwei.service.MenuService;
-import org.apache.catalina.security.SecurityUtil;
+import com.els.baiwei.service.emp.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;

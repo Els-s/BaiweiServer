@@ -16,11 +16,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +30,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @Despt:
+ * @Despt: Security封装对前端数据处理
  * @Author: Els-s
  * @Time: 2019/11/6 9:46
  */
@@ -108,7 +110,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     }
                 })
                 .and()
-                .csrf().disable();
+                .csrf().disable()
+
+                /*处理跨域问题*/
+                .exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint() {
+                    //前端重定向时不返回地址
+            @Override
+            public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+                response.setStatus(401);
+                response.setContentType("application/json;charset=utf-8");
+                String s = new ObjectMapper().writeValueAsString(RespBean.error("尚未登录,请登录!"));
+                PrintWriter writer = response.getWriter();
+                writer.write(s);
+                writer.flush();
+                writer.close();
+            }
+        })
+        ;
 
     }
 
