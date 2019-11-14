@@ -1,5 +1,8 @@
 package com.els.baiwei.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Salary {
@@ -19,6 +22,7 @@ public class Salary {
 
     private Float pensionper;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private Date createdate;
 
     private Integer medicalbase;

@@ -15,5 +15,6 @@ public interface HrMapper {
 
     int updateByPrimaryKey(Hr record);
 
+//    登录验证
     Hr loadUserByUsername(String username);
 }

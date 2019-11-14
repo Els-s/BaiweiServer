@@ -2,41 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccd7fca0-277e-4385-ba5b-16dc62237b03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/emp/EmployeeBasicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/DepartmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/EmpBasicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/JobLevelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/NationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/PoliticsstatusService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/PositionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/utils/POIUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/utils/POIUtils1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/config/SocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/WsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/food/FoodManaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/salary/SalarySobConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/salary/SalarySobController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/FoodMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/FoodMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Food.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/food/FoodManaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/salary/SalarySobService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/els/baiwei/test1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baiweiserver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/baiweiserver.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/config/MyFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/config/MyFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/SystemConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/SystemConfigController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/DepartmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/DepartmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/EmployeeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/JObLevelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/JObLevelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/JObLevelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/JObLevelMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/NationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/NationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/NationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/NationMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PoliticsstatusMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PoliticsstatusMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PoliticsstatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PoliticsstatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PositionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PositionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PositionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/PositionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/DepartmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/JObLevelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/JObLevelMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/NationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/NationMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/PoliticsstatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/PoliticsstatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/PositionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/PositionMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/BaiweiserverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/BaiweiserverApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/emp/EmployeeBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/controller/emp/EmployeeBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/HrMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/HrMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/SalaryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/SalaryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/SalaryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/mapper/SalaryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Hr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Hr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/RespPageBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/RespPageBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/model/Salary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/EmpBasicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/els/baiwei/service/emp/EmpBasicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/els/baiwei/BaiweiserverApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/els/baiwei/BaiweiserverApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/SalaryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/els/baiwei/mapper/SalaryMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,11 +69,11 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/els/baiwei/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../T4-cloud/cloud" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -91,6 +81,8 @@
       <recent name="com.els.baiwei.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Javaproject\T4-springboot\baiweiserver\src\main\java\com\els\baiwei\mapper" />
+      <recent name="D:\Javaproject\T4-springboot\baiweiserver\src\main\java\com\els\baiwei\model" />
       <recent name="D:\Javaproject\T4-springboot\baiweiserver\src\main\java\com\els\baiwei\utils" />
       <recent name="D:\Javaproject\T4-springboot\baiweiserver\src\main\java\com\els\baiwei" />
       <recent name="D:\Javaproject\T4-springboot\baiweiserver\src\main\java\com\els\baiweiserver" />
@@ -108,7 +100,52 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.BaiweiserverApplicationTests.contextLoads">
+    <configuration name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.els.baiwei.test1" />
+      <module name="baiweiserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.els.baiwei.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BaiweiserverApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="baiweiserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.els.baiwei.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.els.baiwei" />
+      <option name="MAIN_CLASS_NAME" value="com.els.baiwei.BaiweiserverApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BaiweiserverApplicationTests.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="baiweiserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.els.baiwei.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.els.baiwei" />
+      <option name="MAIN_CLASS_NAME" value="com.els.baiwei.BaiweiserverApplicationTests" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BaiweiserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="baiweiserver" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.els.baiwei.BaiweiserverApplication" />
@@ -116,6 +153,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BaiweiserverApplicationTests.contextLoads" />
+        <item itemvalue="Application.test1" />
+        <item itemvalue="JUnit.BaiweiserverApplicationTests.test1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="showServicesTree" value="false" />
@@ -126,6 +170,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -134,6 +203,11 @@
           </value>
         </entry>
       </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
     </option>
   </component>
 </project>

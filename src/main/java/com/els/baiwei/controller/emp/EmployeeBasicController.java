@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * @Despt:  基础表查询
+ * @Despt: 基础表查询
  * @Author: Els-s
  * @Time: 2019/11/8 15:01
  */
@@ -38,65 +38,65 @@ public class EmployeeBasicController {
 
 
     @GetMapping("/")
-    public RespPageBean getEmployeeByPage(@RequestParam(defaultValue = "1") Integer currentPage, @RequestParam(defaultValue = "10") Integer pageSize,String keywords){
-        return empBasicService.getEmployeeByPage(currentPage,pageSize,keywords);
+    public RespPageBean getEmployeeByPage(@RequestParam(defaultValue = "1") Integer currentPage, @RequestParam(defaultValue = "10") Integer pageSize, String keywords) {
+        return empBasicService.getEmployeeByPage(currentPage, pageSize, keywords);
     }
 
     @DeleteMapping("/{id}") //必须要@PathVariable占位符
-    public RespBean deleteEmployeeById(@PathVariable Integer id){
+    public RespBean deleteEmployeeById(@PathVariable Integer id) {
         return empBasicService.deleteEmployeeById(id);
     }
 
     /*添加*/
     @PostMapping("/") //@RequestBody表示返回数据为json类型
-    public RespBean addEmployee(@RequestBody Employee employee){
+    public RespBean addEmployee(@RequestBody Employee employee) {
         return empBasicService.addEmployee(employee);
     }
 
     /*更新*/
     @PutMapping("/") //@RequestBody表示返回数据为json类型
-    public RespBean updateEmployee(@RequestBody Employee employee){
+    public RespBean updateEmployee(@RequestBody Employee employee) {
         return empBasicService.updateEmployee(employee);
     }
 
     /*获取民族*/
     @GetMapping("/nations")
-    public List<Nation> getAllNation(){
+    public List<Nation> getAllNation() {
         return nationService.getAllNation();
     }
 
     /*获取职称*/
     @GetMapping("/jobLevels")
-    public List<JObLevel> getJobLevels(){
+    public List<JObLevel> getJobLevels() {
         return jobLevelService.getJobLevels();
     }
 
     /*获取政治面貌*/
     @GetMapping("/politicsstatus")
-    public List<Politicsstatus> getPoliticsstatus(){
+    public List<Politicsstatus> getPoliticsstatus() {
         return politicsstatusService.getPoliticsstatus();
     }
 
     /*获取职位*/
     @GetMapping("/positions")
-    public List<Position> getPositions(){
+    public List<Position> getPositions() {
         return positionService.getPositions();
     }
 
     /*查询部门*/
     @GetMapping("/dep")
-    public List<Department> getAllDep(){
+    public List<Department> getAllDep() {
         return departmentService.getAllDep();
     }
 
     @GetMapping("/export")
-    public ResponseEntity<byte[]> exportData(){
-        return  POIUtils1.emp2Exel((List<Employee>) empBasicService.getEmployeeByPage(null,null,null).getData());
+    public ResponseEntity<byte[]> exportData() {
+        return POIUtils1.emp2Exel((List<Employee>) empBasicService.getEmployeeByPage(null, null, null).getData());
     }
 
     @PostMapping("/import")
     public RespBean importData(MultipartFile file) throws IOException {
-        List<Employee> list=POIUtils1.importData(file);
+        List<Employee> list = POIUtils1.importData(file);
 //        return empBasicService.addAllEmp(list);
         return empBasicService.addAllEmp2(list);
     }

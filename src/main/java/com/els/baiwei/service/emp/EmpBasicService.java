@@ -9,12 +9,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @Despt:
@@ -27,6 +27,7 @@ public class EmpBasicService {
     @Resource
     EmployeeMapper employeeMapper;
 
+    @Transactional(propagation = Propagation.SUPPORTS)
     public RespPageBean getEmployeeByPage(Integer currentPage, Integer pageSize, String keywords) {
         RespPageBean respPageBean = new RespPageBean();
         Integer pageIndex = null;
@@ -38,6 +39,7 @@ public class EmpBasicService {
         return respPageBean;
     }
 
+    @Transactional
     public RespBean deleteEmployeeById(Integer id) {
         int i = employeeMapper.deleteByPrimaryKey(id);
         if (i > 0) {
@@ -46,6 +48,7 @@ public class EmpBasicService {
         return RespBean.error("删除失败!");
     }
 
+    @Transactional
     public RespBean addEmployee(Employee employee) {
         int i = employeeMapper.insertSelective(employee);
         if (i == 1) {
@@ -54,6 +57,7 @@ public class EmpBasicService {
         return RespBean.error("添加失败");
     }
 
+    @Transactional
     public RespBean updateEmployee(Employee employee) {
         int i = employeeMapper.updateByPrimaryKeySelective(employee);
         if (i == 1) {
@@ -63,6 +67,7 @@ public class EmpBasicService {
     }
 
     /*sql批量导入方式*/
+    @Transactional
     public RespBean addAllEmp(List<Employee> emps) {
         long startTime = System.currentTimeMillis();
         try {
@@ -80,6 +85,7 @@ public class EmpBasicService {
     SqlSessionTemplate sqlSessionTemplate;
 
     /*mybatis batch批量导入方式*/
+    @Transactional
     public RespBean addAllEmp2(List<Employee> emps) {
         SqlSessionFactory sessionFactory = sqlSessionTemplate.getSqlSessionFactory();
         //这里修改执行器的类型
